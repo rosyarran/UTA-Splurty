@@ -65,8 +65,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 
 #Adding Bootstrap
-gem 'popper_js', '~> 1.11.1'
-gem 'bootstrap', '4.0.0.alpha6'
+gem 'popper_js', '~> 1.14.3'
+gem 'bootstrap', '>= 4.3.1'
 
 #Adds simple form gem https://github.com/plataformatec/simple_form
 gem 'simple_form'
