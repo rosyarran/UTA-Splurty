@@ -10,6 +10,8 @@
   </head>
 
   <body>
+
+    <!-- Top Nav Bar -->
     <header class="row">
       <div class="col-3">
         <%= link_to root_path, class: 'logo' do %>
@@ -23,12 +25,13 @@
           </div>
         <% end %>
       </div>
-      <div class="col-4 slogan">
+      <div class="col col-sm-4 hidden-xs-down slogan">
         Splurting out family matters since 2019
       </div>
-      <div class="col-5 links">
+      <div class="col-10 offset-1 offset-sm-0 col-sm-5 links">
         <!-- Button trigger modal -->
         <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
+        &nbsp;&nbsp;&nbsp;
         <%= link_to 'About', about_path %>
       </div>
     </header>
@@ -45,12 +48,13 @@
           </div>
           <%= simple_form_for Quote.new do |f| %>
             <div class="modal-body">
-              <%= f.input :saying %>
-              <%= f.input :author %>
+              <%= f.input :saying, label: "What is the saying you want to add?", placeholder: "Between 3 and 400 characters." %>
+              <br />
+              <%= f.input :author, label: "Who is the author of the quote?", placeholder: "Between 3 and 40 characters." %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <%= f.submit 'Create', class: 'btn btn-danger' %>
+              <%= f.submit 'Create', class: 'btn btn-info' %>
             </div>
           <% end %>
         </div>
@@ -61,6 +65,7 @@
 
     <br class="clear" />
 
+    <!-- Alert -->
     <div class="container">
       <% if flash[:error].present? %>
         <div class="col-10 offset-1 alert alert-danger">
@@ -70,18 +75,20 @@
       <%= yield %>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-6">
-            <%= link_to "I need more", root_path, class: 'next-quote' %>
+          <div class="col-12 col-sm-6">
+            <%= link_to "I need more quotes", root_path, class: 'next-quote' %>
           </div>
-          <div class="col-6 footer-blurb">
+          <div class="col-12 col-sm-6 footer-blurb">
             Proudly hacked by <a href="rosyarreola.com">Rosy Arreola</a> <br />
             Want to build your own Splurty App - <a href="https://online.bootcampspot.com">Learn how to code here</a>
           </div>
         </div>
       </div>
     </div>
+
   </body>
 </html>
